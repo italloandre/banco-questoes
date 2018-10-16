@@ -29,3 +29,15 @@ class Question(CreateUpdateModel):
 		verbose_name = 'questao'
 		verbose_name_plural = 'questoes'
 
+class Test(CreateUpdateModel):
+	teacher = models.ForeignKey(UUIDUser, on_delete = models.CASCADE, related_name = 'teach', verbose_name = 'professor')
+	matter = models.ForeignKey(Matter, on_delete = models.CASCADE, related_name = 'matte', verbose_name = 'materia')
+	questions = models.ManyToManyField(Question, related_name = 'questions', verbose_name = 'questoes')
+
+	def __str__(self):
+		return 'Prova da disciplina: ' + self.teacher.first_name
+
+	class Meta:
+		verbose_name = 'prova'
+		verbose_name_plural = 'provas' 
+
