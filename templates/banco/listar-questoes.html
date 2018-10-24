@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+<div>
+	<h3>Questoes</h3>
+	<ul>
+		{% for questao in questoes %}
+		<li><a href="{% url 'banco:detalhes' questao.pk %}">{{questao.statement}}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+<div>
+	<h3>Detalhes da Questão</h3>
+	<p><b>Enunciado: </b> {{object.statement}}</p>
+	<ul>
+		<li>a) {{object.alternative_one}}</li>
+		<li>b) {{object.alternative_two}}</li>
+		<li>c) {{object.alternative_three}}</li>
+		<li>d) {{object.alternative_four}}</li>
+		<li>e) {{object.correct_alternative}}</li>
+	</ul>
+</div>
+
+{% endblock %}

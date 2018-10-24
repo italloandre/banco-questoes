@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+<div>
+	<h3>Cadastrar Questão</h3>
+	<form method="post">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" name="enviar" value="Cadastrar">
+	</form>
+</div>
+
+{% endblock %}

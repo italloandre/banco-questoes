@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Banco de Questões</title>
+</head>
+<body>
+	<div>
+		<h3>Banco de Questões</h3>
+		<p>Banco de Questões para professores</p>
+	</div>
+	<div>
+		<ul>
+			<li><a href="{% url 'banco:home' %}">Home</a></li>
+			{% if request.user.is_authenticated %}
+			<li><a href="{% url 'banco:cadastrar-disciplina' %}">Cadastrar Disciplina</a></li>
+			<li><a href="{% url 'banco:cadastrar-questao' %}">Cadastrar Questão</a></li>
+			<li><a href="{% url 'banco:criar-prova' %}">Criar Prova</a></li>
+			<li><a href="{% url 'banco:listar-disciplinas' %}">Listar Disciplinas</a></li>
+			<li><a href="{% url 'banco:listar-questoes' %}">Listar Questões</a></li>
+			<li><a href="{% url 'core:logout' %}">Sair</a></li>
+			{% else %}
+			<li><a href="{% url 'core:login' %}">Login</a></li>
+			<li><a href="{% url 'core:cadastro' %}">Cadastro</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	{% block content %}
+	{% endblock %}
+	<div>
+		<p>Banco de Questões &copy; 2018</p>
+	</div>
+
+</body>
+</html>

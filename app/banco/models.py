@@ -13,6 +13,7 @@ class Matter(CreateUpdateModel):
 		verbose_name_plural = 'professores'
 
 class Question(CreateUpdateModel):
+	teacher = models.ForeignKey(UUIDUser, on_delete = models.CASCADE, related_name = 'users', verbose_name = 'professor')
 	matter = models.ForeignKey(Matter, on_delete = models.CASCADE, related_name = 'matters', verbose_name = 'materia')
 	statement = models.TextField(verbose_name = 'enunciado')
 	image = models.ImageField(upload_to = 'images/', verbose_name = 'imagem', blank = True, null = True)
